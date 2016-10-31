@@ -2,6 +2,7 @@
 var Sequelize = require('sequelize')
 var db = require('APP/db')
 
-module.exports = db.define('users', {
+module.exports = db.define('stars', {
   name: Sequelize.STRING,
+  location: Sequelize.STRING
 })
