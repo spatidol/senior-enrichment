@@ -28,23 +28,20 @@ api.post('/stars', function(req, res, next){
   })
 })
 
-api.post('/wish', function(req, res, next){
-  Wish.create(req.body)
-  .then(function(newWish){
-    res.json(newWish)
-  })
-})
+// api.post('/wish', function(req, res, next){
+//   Wish.create(req.body)
+//   .then(function(newWish){
+//     res.json(newWish)
+//   })
+// })
 
-api.post('/',function(req, res, next) {
-    Star.findOrCreate({
-        where: {
-            name: req.body.name
-        }
-    })
+api.post('/wish', function(req, res, next) {
+    Star.create(req.body) //doesnt work when use findorcreate?
     .then(function(foundStar){
       return Wish.create(req.body)
         .then(function(newWish){
             newWish.setHolder(foundStar)
+
         })
     })
     .then(function(newWish){

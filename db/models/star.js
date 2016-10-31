@@ -2,7 +2,10 @@
 var Sequelize = require('sequelize')
 var db = require('APP/db')
 
-module.exports = db.define('stars', {
+const Star = db.define('stars', {
   name: Sequelize.STRING,
   location: Sequelize.STRING
 })
+
+
+module.exports = Star;
